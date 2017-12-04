@@ -1,9 +1,59 @@
-// Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-var computerChoices = ["r", "p", "s"];
-// Creating variables to hold the number of wins, losses, and ties. They start at 0.
-var wins = 0;
-var losses = 0;
-var ties = 0;
+var config = {
+  apiKey: "AIzaSyBrDGyqdOgGEajfTjrkc5_UX1TGa5QPAV8",
+  authDomain: "rps-game-eb91f.firebaseapp.com",
+  databaseURL: "https://rps-game-eb91f.firebaseio.com",
+  projectId: "rps-game-eb91f",
+  storageBucket: "rps-game-eb91f.appspot.com",
+  messagingSenderId: "1051895724929"
+};
+
+firebase.initializeApp(config);
+
+
+var database = firebase.database();
+
+var playerOneExists = false;
+var playerTwoExists = false;
+
+var playerExists = new Firebase("https://rps-game-eb91f.firebaseio.com/players")
+ref.once("value", function(snapshot) {
+     
+     var playerSnapshot = snapshot.child(playerNum);
+     
+});
+
+// var playerNum = 
+  
+//     if (playerOneExists) {
+//       playerNum == 2  
+//     }
+
+//     else {
+//       playerNum == 1 
+//     }
+
+
+var playerRef = database.ref("/players/" + playerNum);
+
+// Creates player object. 'choice' is unnecessary here, but I left it in to be as complete as possible
+playerRef.set({
+  name: username,
+  wins: 0,
+  losses: 0,
+  choice: null
+});
+
+$(document).on("click", function() { 
+  console.log("test");
+  playerRef.push({
+      choice: 1//choice variable ,
+      wins: 1, //wins variable
+      losses: 1, //losses variable
+      name: 1 //names variable,
+      // dateAdded: firebase.ServerValue.TIMESTAMP
+  });
+}
+
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
   // Determines which key was pressed.
@@ -12,6 +62,7 @@ document.onkeyup = function(event) {
   var playerTwoGuess = event.key;
   // Reworked our code from last step to use "else if" instead of lots of if statements.
   // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+  
   if ((playerOneGuess === "r") || (playerOneGuess === "p") || (playerOneGuess === "s")) {
     if ((playerOneGuess === "r") && (playerTwoGuess === "s")) {
       wins++;
@@ -28,7 +79,11 @@ document.onkeyup = function(event) {
     } else if (playerOneGuess === playerTwoGuess) {
       ties++;
     }
-    // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
+
+// push results to firebase 
+
+
+// Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
     var html =
       "<p>You chose: " + playerOneGuess + "</p>" +
       "<p>The computer chose: " + playerTwoGuess + "</p>" +
