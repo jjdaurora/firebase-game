@@ -1,3 +1,7 @@
+body {
+	font-family: 'Indie Flower', cursive;
+}
+
 .navbar {
 	height: 100px;
 	text-align: center;
@@ -7,7 +11,16 @@
 .nav-header {
 	margin: auto;
 	font-size: 3.0em;
+	font-weight: bold;
 }
+
+.message-center {
+	position: relative;
+	top: 20px;
+	left: 15%;
+
+}
+
 
 #game {
  	margin: 50px;
@@ -34,10 +47,16 @@
 	padding-top: 50px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 960px) {
 	
 	.player-score {
 		padding-top: 0px;
     }
 
+    .message-center {
+		position: relative;
+    	left: 0px;
+    }
+
 }
+
