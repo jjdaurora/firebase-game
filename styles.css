@@ -1,3 +1,43 @@
-#player-1 {
+.navbar {
+	height: 100px;
 	text-align: center;
+	background-color: orange;
+}
+
+.nav-header {
+	margin: auto;
+	font-size: 3.0em;
+}
+
+#game {
+ 	margin: 50px;
+}
+
+#player-1, #player-2 {
+	height: 300px;
+}
+
+
+.card-header {
+	background-color: gray;
+	text-align: center;
+}
+
+.game-icons {
+	
+	margin: 30px 0px 40px 40px;
+
+}
+
+.player-score {
+	text-align: center;
+	padding-top: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+	
+	.player-score {
+		padding-top: 0px;
+    }
+
 }
